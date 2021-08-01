@@ -1,14 +1,17 @@
 import * as React from 'react';
 import { DataGrid } from '@material-ui/data-grid';
-import { Grid, Typography, Toolbar, Box } from '@material-ui/core';
+import { Grid, Typography, Toolbar, Box, Paper } from '@material-ui/core';
 
 import axios from 'axios';
 import Map from './Map';
 import Header from './Header';
+import Card from './Card';
+import Accordion from './Accordion';
 
+require('dotenv').config();
 const url = 'https://us-central1-georgefane.cloudfunctions.net/mdining'
 
-const width = 144;
+const width = 122;
 const columns = [
     { field: 'Hall', width },
     { field: 'Meal', width },
@@ -18,10 +21,11 @@ const columns = [
 ];
 
 class App extends React.Component {
-    constructor () {
-        super();
+    constructor (props) {
+        super(props);
         this.state = {
             rows: [],
+            row: {},
             loading: true,
             Courses: '',
         };
@@ -35,33 +39,35 @@ class App extends React.Component {
     }
 
     render () {
-        const { rows, loading, Courses } = this.state;
+        const { rows, row, loading, Courses } = this.state;
         const data = {
             rows, columns, loading, autoHeight: true,
             onRowClick: data => {
-                const { Courses } = data.row;
-                this.setState({ Courses });
+                const { row } = data;
+                this.setState({ row });
             }
         };
+
+        const lat = 42.28156557881266;
+        const lng = -83.72879591738906;
+        const center = { lat, lng };
+        const zoom = 12;
+        const mapProps = { center, zoom, rows };
+
         return <div>
             <Header />
             <Toolbar />
             <div>
                 <Grid container spacing={1}>
-                    <Grid item xs={8}>
+                    <Grid item xs>
                         <DataGrid {...data} />;
+                        <Accordion children={<Map {...mapProps} />} />
                     </Grid>
                     
                     <Grid item xs>
-                        <Typography>
-                            {Courses}
-                        </Typography>
+                        <Card row={row} />
                     </Grid>
                 </Grid>
-                
-                <Box display='inline'>
-                    <Map rows={rows} />
-                </Box>
             </div>
         </div>
     }

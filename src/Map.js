@@ -5,41 +5,31 @@ import { Room } from '@material-ui/icons';
 
 function Marker(props) {
     return (
-        <Tooltip title="Delete">
-            <div>
-                <Room
-                    color={props.isOpen ? 'primary': 'secondary'}
-                />
-                {props.Hall}
-            </div>
-        </Tooltip>
+        <div>
+            <Room
+                color={props.isOpen ? 'primary': 'secondary'}
+            />
+            {props.Hall}
+        </div>
     );
 }
 
 const { key } = process.env;
-console.log(process.env)
 
 class SimpleMap extends Component {
-    static defaultProps = {
-        bootstrapURLKeys: {
-            key
-        },
-        defaultCenter: {
-            lat: 42.28156557881266,
-            lng: -83.72879591738906
-        },
-        defaultZoom: 13
-    };
+    constructor(props) {
+        super(props);
+    }
 
     render() {
         const { rows } = this.props;
-        const markers = rows.map(row => (
+        const markers = rows ? rows.map(row => (
             <Marker {...row} />
-        ))
+        )) : null;
         
         return (
             // Important! Always set the container height explicitly
-            <div style={{ height: '55vh', width: '55%' }}>
+            <div style={{ height: '33vh', width: '99%' }}>
                 <GoogleMapReact
                     {...this.props}
                 >
