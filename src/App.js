@@ -8,7 +8,6 @@ import Header from './Header';
 import Card from './Card';
 import Accordion from './Accordion';
 
-require('dotenv').config();
 const url = 'https://us-central1-georgefane.cloudfunctions.net/mdining'
 
 const width = 122;

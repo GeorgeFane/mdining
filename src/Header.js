@@ -5,7 +5,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
-import { GitHub } from '@material-ui/icons';
+import { GitHub, Home } from '@material-ui/icons';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -26,20 +26,25 @@ export default function ButtonAppBar() {
         <div className={classes.root}>
             <AppBar>
                 <Toolbar>
+
+                    <IconButton
+                        color="inherit"
+                        href='https://georgefane.github.io/'
+                    >
+                        <Home />
+                    </IconButton>
+
                     <Typography variant="h6" className={classes.title}>
                         Michigan Dining
                     </Typography>
-            
-                    <Button
-                        startIcon={<GitHub />}
-                        color='inherit'
-                        variant='outlined'
 
+                    <IconButton
+                        color="inherit"
                         href='https://github.com/GeorgeFane/mdining/tree/source'
                         target='_blank'
                     >
-                        Source (React)
-                    </Button>
+                        <GitHub />
+                    </IconButton>
                 </Toolbar>
             </AppBar>
         </div>
