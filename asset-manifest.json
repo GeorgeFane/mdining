@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.js": "/mdining/static/js/main.0639f87e.chunk.js",
+    "main.js.map": "/mdining/static/js/main.0639f87e.chunk.js.map",
+    "runtime-main.js": "/mdining/static/js/runtime-main.28de7f79.js",
+    "runtime-main.js.map": "/mdining/static/js/runtime-main.28de7f79.js.map",
+    "static/js/2.968d519b.chunk.js": "/mdining/static/js/2.968d519b.chunk.js",
+    "static/js/2.968d519b.chunk.js.map": "/mdining/static/js/2.968d519b.chunk.js.map",
+    "index.html": "/mdining/index.html",
+    "static/js/2.968d519b.chunk.js.LICENSE.txt": "/mdining/static/js/2.968d519b.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.28de7f79.js",
+    "static/js/2.968d519b.chunk.js",
+    "static/js/main.0639f87e.chunk.js"
+  ]
+}
