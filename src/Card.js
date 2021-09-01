@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Grid, Typography, Button, Paper } from '@material-ui/core';
+import { Grid, Typography, Button, Paper, List, ListItem, ListItemText } from '@material-ui/core';
 import { Check, Close } from '@material-ui/icons';
 
 import Map from './Map';
@@ -22,6 +22,12 @@ export default function CenteredGrid(props) {
     const zoom = 17;
     const mapProps = { center, zoom };
 
+    const items = row.Courses.split(', ').map(course => (
+        <ListItem button>
+            <ListItemText primary={course} />
+        </ListItem>
+    ));
+
     return row.Hall ? (
         <Paper className={classes.paper}>
             <Map {...mapProps} />         
@@ -35,10 +41,11 @@ export default function CenteredGrid(props) {
             >
                 {row.Open} - {row.Close}, {row.Meal}
             </Button>
+
+            <List>
+                {items}
+            </List>
             
-            <Typography>
-                {row.Courses}
-            </Typography>
         </Paper>
     ) : (
         <Typography>

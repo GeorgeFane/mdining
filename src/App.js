@@ -24,7 +24,7 @@ class App extends React.Component {
         super(props);
         this.state = {
             rows: [],
-            row: {},
+            row: { Courses: '' },
             loading: true,
             Courses: '',
         };
@@ -33,6 +33,7 @@ class App extends React.Component {
     async componentDidMount() {
         const resp = await axios.get(url);
         const rows = resp.data.data.map( (row, id) => ({ id, ...row }) );
+        console.log(rows);
         const loading = false;
         this.setState({ rows, loading });
     }
@@ -40,7 +41,7 @@ class App extends React.Component {
     render () {
         const { rows, row, loading, Courses } = this.state;
         const data = {
-            rows, columns, loading, autoHeight: true,
+            rows, columns, loading, autoHeight: true, pageSize: 5,
             onRowClick: data => {
                 const { row } = data;
                 this.setState({ row });
