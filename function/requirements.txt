@@ -1,0 +1,7 @@
+requests
+lxml
+datetime
+pytz
+typing
+asyncio
+aiohttp
