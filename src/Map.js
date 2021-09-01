@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
 import { Room } from '@material-ui/icons';
-import bootstrapURLKeys from './env';
 
 function Marker(props) {
     return (
