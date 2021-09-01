@@ -6,7 +6,9 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import { GitHub, Home } from '@material-ui/icons';
-import { Tooltip } from '@material-ui/core';
+import { Tooltip, Link, Drawer } from '@material-ui/core';
+
+import TempDrawer from './TempDrawer';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -17,6 +19,9 @@ const useStyles = makeStyles((theme) => ({
     },
     title: {
         flexGrow: 1,
+    },
+    drawer: {
+        width: 222,
     },
 }));
 
@@ -39,17 +44,7 @@ export default function ButtonAppBar() {
                         Michigan Dining
                     </Typography>
 
-                    <Tooltip title={
-                        <Typography>
-                            The backend is a Python microservice deployed on Google Cloud Functions. Everytime you visit this page, the microservice uses lxml to scrape all Michigan Dining menus across halls and determines whether they're open. You can see the code at 
-                        </Typography>
-                    }>
-                        <Button
-                            color='inherit'
-                        >
-                            About
-                        </Button>
-                    </Tooltip>
+                    <TempDrawer />
 
                     <IconButton
                         color="inherit"
