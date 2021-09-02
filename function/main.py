@@ -57,10 +57,10 @@ def getCourses(tree) -> List[str]:
         for div in tree.xpath('//div[@class="courses"]')
     ]
     return [
-        ', '.join([
+        [
             food.strip()
             for food in foods
-        ]) for foods in meals
+        ] for foods in meals
     ]
 
 

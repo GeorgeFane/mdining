@@ -52,7 +52,7 @@ export default function TemporaryDrawer() {
                 The backend is a Python microservice deployed on Google Cloud Functions. Everytime you visit this page, the microservice uses lxml to scrape all Michigan Dining menus asynchornously and determines whether they're open. You can see the code
                 {' '}
                 <Link
-                    href='https://github.com/GeorgeFane/mdining/blob/main/function/main.py'
+                    href='https://github.com/GeorgeFane/payoffmatrixsolver/blob/main/function/main.py'
                     target='_blank'
                 >
                     here
